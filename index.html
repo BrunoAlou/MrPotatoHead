@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mrs Potato Head</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <label>
+        <input type="text" id="hair" />
+        <button type="button" id="newHair">⟳</button>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="text" id="eyes" />
+        <button type="button" id="newEye">⟳</button>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="text" id="nose" />
+        <button type="button" id="newNose">⟳</button>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="text" id="mounth" />
+        <button type="button" id="newMounth">⟳</button>
+      </label>
+    </div>
+    <div>
+      <label>
+        <button type="button" id="savePotato">Show</button>
+      </label>
+    </div>
+
+    <div class="potatoShow">
+    </div>
+  </body>
+</html>
+<style>
+#whatever{
+  display: inline-block;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  transform-origin: bottom;
+  font-size: xxx-large;
+}
+
+</style>
+<script>
+  window.onload = function () {
+    let hair = ["", "[[[", "2", "3", "(", "\\/\\/", "Ç" ,"〖" , "〔" , "《" , "ଽ" , "∊" ,"⋘" ,"Ɂ" ,"▒"];
+    let eyes = ["B", ":'", ">:", "<:", ":", ";", "¦"];
+    let nose = ["- ", "^ ", "* ", "~ ", "¤ ", ""];
+    let mounth = ["Þ", "O", "}", "|", ")", "(", ")~~", ")==="];
+
+    document.getElementById("newHair").onclick = function () {
+      min = 0;
+      max = hair.length;
+      let value = Math.floor(Math.random() * (max - min)) + min;
+      document.getElementById("hair").value = hair[value];
+      console.log(hair[value]);
+    };
+    document.getElementById("newEye").onclick = function () {
+      min = 0;
+      max = eyes.length;
+      let value = Math.floor(Math.random() * (max - min)) + min;
+      document.getElementById("eyes").value = eyes[value];
+
+      console.log(eyes[value]);
+    };
+    document.getElementById("newNose").onclick = function () {
+      min = 0;
+      max = nose.length;
+      let value = Math.floor(Math.random() * (max - min)) + min;
+      document.getElementById("nose").value = nose[value];
+
+      console.log(nose[value]);
+    };
+    document.getElementById("newMounth").onclick = function () {
+      min = 0;
+      max = mounth.length;
+      let value = Math.floor(Math.random() * (max - min)) + min;
+      document.getElementById("mounth").value = mounth[value];
+
+      console.log(mounth[value]);
+    };
+
+    document.getElementById("savePotato").onclick = function () {
+      let local = document.getElementsByClassName("potatoShow")[0];
+      let content =
+        document.getElementById("hair").value +
+        document.getElementById("eyes").value +
+        document.getElementById("nose").value +
+        document.getElementById("mounth").value;
+      content = `<p id="whatever">` + content + `</p>`;
+      local.innerHTML = content;
+    };
+  };
+</script>
